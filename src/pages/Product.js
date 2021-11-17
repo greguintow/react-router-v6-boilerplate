@@ -1,4 +1,4 @@
-import { useHistory, useLocation, useParams } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 
 export default function Product() {
   const { productId } = useParams();
