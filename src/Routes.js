@@ -1,15 +1,16 @@
-import { Route, Switch } from 'react-router-dom';
-
-import Home from './pages/Home';
-import Products from './pages/Products';
-import Product from './pages/Product';
+import { Route, Routes as BaseRoutes } from "react-router-dom";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Product from "./pages/Product";
 
 export default function Routes() {
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/products" component={Products} />
-      <Route path="/products/:productId" component={Product} />
-    </Switch>
+    <BaseRoutes>
+      <Route path="/" element={<Home />} />
+      <Route path="products">
+        <Route index element={<Products />} />
+        <Route path=":productId" element={<Product />} />
+      </Route>
+    </BaseRoutes>
   );
 }
